@@ -8,6 +8,11 @@ updates:
     open-pull-requests-limit: 10
     commit-message:
       prefix: "chore(deps):"
+    # Wait before proposing new releases so compromised/broken versions
+    # get caught by the ecosystem first (supply-chain protection)
+    cooldown:
+      default-days: 7
+      semver-major-days: 14
 
   # Keep the pinned GitHub Actions SHAs current (security + bug fixes)
   - package-ecosystem: github-actions
@@ -15,3 +20,5 @@ updates:
     schedule:
       interval: weekly
     open-pull-requests-limit: 5
+    cooldown:
+      default-days: 3
